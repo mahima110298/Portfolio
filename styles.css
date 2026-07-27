@@ -4,19 +4,24 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0a0f1e;
-  --bg-card:   #111827;
-  --bg-card2:  #1a2235;
-  --border:    rgba(255,255,255,0.08);
-  --accent:    #6366f1;
-  --accent2:   #a78bfa;
-  --accent-glow: rgba(99, 102, 241, 0.3);
-  --text:      #e2e8f0;
-  --muted:     #94a3b8;
+  --bg:        #faf8f4;
+  --bg-card:   #ffffff;
+  --bg-card2:  #f4f1ea;
+  --border:    rgba(26, 22, 20, 0.1);
+  --accent:    #7c2d3f;
+  --accent2:   #ab5464;
+  --accent-rgb: 124, 45, 63;
+  --accent2-rgb: 171, 84, 100;
+  --accent-glow: rgba(124, 45, 63, 0.18);
+  --text:      #201c1a;
+  --muted:     #6b6459;
   --ms-blue:   #0078d4;
   --sf-blue:   #00a1e0;
+  --stealth-green: #0f766e;
+  --csulb-blue: #0055a5;
   --radius:    12px;
   --radius-lg: 20px;
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -46,7 +51,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 #nav.scrolled {
-  background: rgba(10, 15, 30, 0.85);
+  background: rgba(250, 248, 244, 0.85);
   backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 var(--border);
 }
@@ -64,7 +69,7 @@ a { color: inherit; text-decoration: none; }
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
   font-size: 1.1rem;
-  color: var(--accent2);
+  color: var(--accent);
   letter-spacing: 0.05em;
 }
 
@@ -88,7 +93,7 @@ a { color: inherit; text-decoration: none; }
   padding: 0.4rem 1.1rem;
   border: 1px solid var(--accent);
   border-radius: 6px;
-  color: var(--accent2);
+  color: var(--accent);
   transition: background 0.2s, color 0.2s;
 }
 
@@ -135,16 +140,17 @@ a { color: inherit; text-decoration: none; }
 .hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
-  color: var(--accent2);
+  color: var(--accent);
   margin-bottom: 0.5rem;
   letter-spacing: 0.05em;
 }
 
 .hero-name {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
   font-weight: 700;
   line-height: 1.1;
-  background: linear-gradient(135deg, #fff 0%, var(--accent2) 100%);
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -193,7 +199,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .btn-primary:hover {
-  background: #5558e3;
+  background: #632331;
   transform: translateY(-1px);
   box-shadow: 0 8px 24px var(--accent-glow);
 }
@@ -227,15 +233,15 @@ a { color: inherit; text-decoration: none; }
 .hero-links a svg { width: 20px; height: 20px; }
 .hero-links a:hover { color: var(--accent2); transform: translateY(-2px); }
 
-/* Code Window */
+/* Code Window — intentionally dark, floats as a contrast accent on the light page */
 .hero-visual { flex: 1; max-width: 440px; }
 
 .code-window {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: #17151f;
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+  box-shadow: 0 24px 64px rgba(32, 28, 26, 0.22);
 }
 
 .window-bar {
@@ -244,7 +250,7 @@ a { color: inherit; text-decoration: none; }
   gap: 6px;
   padding: 12px 16px;
   background: rgba(255,255,255,0.03);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .dot {
@@ -258,7 +264,7 @@ a { color: inherit; text-decoration: none; }
 .window-title {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
-  color: var(--muted);
+  color: #8b8794;
   margin-left: 6px;
 }
 
@@ -269,6 +275,7 @@ a { color: inherit; text-decoration: none; }
   padding: 1.5rem;
   white-space: pre;
   overflow-x: auto;
+  color: #e2e0e6;
 }
 
 .kw  { color: #c792ea; }
@@ -288,7 +295,8 @@ section { padding: 6rem 2rem; }
 }
 
 .section-title {
-  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
   font-weight: 700;
   margin-bottom: 3rem;
   position: relative;
@@ -399,6 +407,8 @@ section { padding: 6rem 2rem; }
 
 .timeline-item[data-company="microsoft"] .timeline-marker { border-color: var(--ms-blue); }
 .timeline-item[data-company="salesforce"] .timeline-marker { border-color: var(--sf-blue); }
+.timeline-item[data-company="stealth"] .timeline-marker { border-color: var(--stealth-green); }
+.timeline-item[data-company="csulb"] .timeline-marker { border-color: var(--csulb-blue); }
 
 .timeline-content {
   background: var(--bg-card);
@@ -423,8 +433,9 @@ section { padding: 6rem 2rem; }
 }
 
 .job-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -432,11 +443,12 @@ section { padding: 6rem 2rem; }
 }
 
 .role-tag {
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
-  background: rgba(99, 102, 241, 0.15);
-  color: var(--accent2);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.3);
   padding: 2px 8px;
   border-radius: 20px;
 }
@@ -455,7 +467,7 @@ section { padding: 6rem 2rem; }
   color: var(--muted);
   white-space: nowrap;
   padding: 3px 10px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(26, 22, 20, 0.04);
   border-radius: 20px;
   border: 1px solid var(--border);
 }
@@ -512,13 +524,13 @@ section { padding: 6rem 2rem; }
 .project-card:hover {
   border-color: var(--accent);
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 16px 40px rgba(var(--accent-rgb), 0.15);
 }
 
 .project-card.featured {
   grid-column: span 2;
-  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(167,139,250,0.05));
-  border-color: rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb),0.07), rgba(var(--accent2-rgb),0.05));
+  border-color: rgba(var(--accent-rgb), 0.3);
 }
 
 .project-header {
@@ -539,8 +551,9 @@ section { padding: 6rem 2rem; }
 }
 
 .project-card h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -560,9 +573,9 @@ section { padding: 6rem 2rem; }
 .project-metrics span {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem;
-  color: var(--accent2);
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
   padding: 2px 8px;
   border-radius: 4px;
 }
@@ -576,7 +589,7 @@ section { padding: 6rem 2rem; }
 .project-tags span {
   font-size: 0.72rem;
   color: var(--muted);
-  background: rgba(255,255,255,0.05);
+  background: rgba(26, 22, 20, 0.04);
   border: 1px solid var(--border);
   padding: 2px 8px;
   border-radius: 4px;
@@ -621,8 +634,8 @@ section { padding: 6rem 2rem; }
 .skill-tags span {
   font-size: 0.775rem;
   color: var(--text);
-  background: rgba(99,102,241,0.1);
-  border: 1px solid rgba(99,102,241,0.2);
+  background: rgba(var(--accent-rgb),0.08);
+  border: 1px solid rgba(var(--accent-rgb),0.2);
   padding: 3px 10px;
   border-radius: 20px;
   font-weight: 500;
@@ -630,7 +643,7 @@ section { padding: 6rem 2rem; }
 }
 
 .skill-tags span:hover {
-  background: rgba(99,102,241,0.25);
+  background: rgba(var(--accent-rgb),0.18);
   border-color: var(--accent2);
 }
 
@@ -682,8 +695,9 @@ section { padding: 6rem 2rem; }
 }
 
 .edu-info h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
   margin-bottom: 0.3rem;
 }
 
@@ -693,7 +707,7 @@ section { padding: 6rem 2rem; }
   margin-bottom: 0.25rem;
 }
 
-.edu-degree strong { color: var(--accent2); }
+.edu-degree strong { color: var(--accent); }
 
 .edu-date {
   font-size: 0.8rem;
@@ -844,7 +858,7 @@ footer {
     position: absolute;
     top: 64px;
     left: 0; right: 0;
-    background: rgba(10, 15, 30, 0.97);
+    background: rgba(250, 248, 244, 0.97);
     backdrop-filter: blur(16px);
     flex-direction: column;
     padding: 1.5rem 2rem;
