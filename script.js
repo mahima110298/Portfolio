@@ -1,9 +1,8 @@
-// Theme toggle
+// Theme toggle (light is the default; dark only when explicitly chosen)
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle?.addEventListener('click', () => {
   const root = document.documentElement;
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const current = root.getAttribute('data-theme') || (systemPrefersDark ? 'dark' : 'light');
+  const current = root.getAttribute('data-theme') || 'light';
   const next = current === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
