@@ -539,7 +539,22 @@ section { padding: 6rem 2rem; }
   justify-content: space-between;
 }
 
+.project-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 .project-icon { font-size: 1.5rem; }
+
+.project-link {
+  color: var(--muted);
+  display: flex;
+  transition: color 0.2s;
+}
+
+.project-link svg { width: 18px; height: 18px; }
+.project-link:hover { color: var(--accent); }
 
 .project-badge {
   font-size: 0.7rem;
