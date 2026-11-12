@@ -809,6 +809,8 @@ section { padding: 6rem 2rem; }
 }
 
 /* Awards */
+.awards-grid + .awards-grid { margin-top: 2.5rem; }
+
 .awards-title {
   font-size: 1.1rem;
   font-weight: 600;
