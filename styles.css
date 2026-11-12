@@ -18,6 +18,7 @@
   --ms-blue:   #0078d4;
   --sf-blue:   #00a1e0;
   --stealth-green: #0f766e;
+  --aithon-purple: #6d28d9;
   --csulb-blue: #0055a5;
   --radius:    12px;
   --radius-lg: 20px;
@@ -480,6 +481,7 @@ section { padding: 6rem 2rem; }
 .timeline-item[data-company="microsoft"] .timeline-marker { border-color: var(--ms-blue); }
 .timeline-item[data-company="salesforce"] .timeline-marker { border-color: var(--sf-blue); }
 .timeline-item[data-company="stealth"] .timeline-marker { border-color: var(--stealth-green); }
+.timeline-item[data-company="aithon"] .timeline-marker { border-color: var(--aithon-purple); }
 .timeline-item[data-company="csulb"] .timeline-marker { border-color: var(--csulb-blue); }
 
 .timeline-content {
